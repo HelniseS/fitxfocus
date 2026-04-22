@@ -53,7 +53,7 @@
                     <div class="mt-4 p-3 bg-light rounded border">
                         <h5>Premium Content</h5>
                         <p>This plan includes paid content. Purchase will unlock full access later when Stripe is added.</p>
-                        <a href="#" class="btn btn-success">Buy Now</a>
+                        <a href="{% url 'create_checkout_session' plan.slug %}" class="btn btn-success">Buy Now</a>
                     </div>
                 </div>
             </div>
