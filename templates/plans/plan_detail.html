@@ -16,7 +16,10 @@
     <a class="btn btn-outline-light btn-sm me-2" href="{% url 'plan_list' %}">Plans</a>
 
     {% if user.is_authenticated %}
-        <a class="btn btn-outline-light btn-sm me-2" href="{% url 'logout' %}">Logout</a>
+<form action="{% url 'logout' %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button class="btn btn-outline-light btn-sm me-2" type="submit">Logout</button>
+</form>
     {% else %}
         <a class="btn btn-outline-light btn-sm me-2" href="{% url 'login' %}">Login</a>
         <a class="btn btn-warning btn-sm" href="{% url 'register' %}">Join</a>
