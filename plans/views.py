@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import WorkoutPlan
 import stripe
 from django.conf import settings
@@ -21,7 +21,8 @@ def plan_detail(request, slug):
     return render(request, 'plans/plan_detail.html', {'plan': plan})
 
 
-    def create_checkout_session(request):
+
+def create_checkout_session(request):
     session = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[{
