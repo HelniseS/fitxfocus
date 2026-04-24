@@ -60,13 +60,35 @@ def create_checkout_session(request, slug):
 
     return redirect(session.url, code=303)
 
-
 @login_required
 def checkout_success(request):
     session_id = request.GET.get("session_id")
-    return render(request, "checkout/success.html", {"session_id": session_id})
 
+    if session_id:
+        try:
+            session = stripe.checkout.Session.retrieve(session_id)
+            purchase_id = session.get("metadata", {}).get("purchase_id")
 
+            print("SESSION ID:", session_id)
+            print("PURCHASE ID:", purchase_id)
+            print("PAYMENT STATUS:", session.payment_status)
+
+            if purchase_id and session.payment_status == "paid":
+                purchase = Purchase.objects.get(
+                    id=purchase_id,
+                    user=request.user
+                )
+                purchase.paid = True
+                purchase.stripe_checkout_session_id = session.id
+                purchase.save()
+                print("PURCHASE MARKED AS PAID")
+
+        except Exception as e:
+            print("ERROR IN SUCCESS VIEW:", e)
+
+    return render(request, "checkout/success.html")
+
+    
 @csrf_exempt
 def stripe_webhook(request):
     payload = request.body

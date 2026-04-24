@@ -1,9 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404
 from .models import WorkoutPlan
-import stripe
-from django.conf import settings
-
-stripe.api_key = settings.STRIPE_SECRET_KEY
+from checkout.models import Purchase
 
 
 def home(request):
@@ -18,25 +15,16 @@ def plan_list(request):
 
 def plan_detail(request, slug):
     plan = get_object_or_404(WorkoutPlan, slug=slug)
-    return render(request, 'plans/plan_detail.html', {'plan': plan})
 
+    has_purchased = False
+    if request.user.is_authenticated:
+        has_purchased = Purchase.objects.filter(
+            user=request.user,
+            plan=plan,
+            paid=True
+        ).exists()
 
-
-def create_checkout_session(request):
-    session = stripe.checkout.Session.create(
-        payment_method_types=['card'],
-        line_items=[{
-            'price_data': {
-                'currency': 'gbp',
-                'product_data': {
-                    'name': 'FitXFocus Plan',
-                },
-                'unit_amount': 2000,
-            },
-            'quantity': 1,
-        }],
-        mode='payment',
-        success_url='http://127.0.0.1:8000/',
-        cancel_url='http://127.0.0.1:8000/',
-    )
-    return redirect(session.url)
+    return render(request, 'plans/plan_detail.html', {
+        'plan': plan,
+        'has_purchased': has_purchased
+    })
