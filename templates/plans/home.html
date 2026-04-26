@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitXFocus</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
 </head>
 <body>
 
@@ -28,13 +33,17 @@
         </div>
     </nav>
 
-    <section class="py-5 bg-light">
-        <div class="container text-center">
-            <h1 class="display-5 fw-bold">Transform Your Body in 30 Days</h1>
-            <p class="lead">Expert-led fitness and meal plans designed to help you reach your goals.</p>
-            <a href="{% url 'plan_list' %}" class="btn btn-primary btn-lg mt-3">Browse Plans</a>
-        </div>
-    </section>
+    <section class="text-center py-5" style="background: linear-gradient(135deg, #f5f7fa, #e4ecf7);">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Transform Your Body in 30 Days</h1>
+    <p class="lead text-muted mb-4">
+      Expert-led fitness and meal plans designed to help you reach your goals.
+    </p>
+    <a href="{% url 'plans' %}" class="btn btn-dark btn-lg px-4">
+      Browse Plans
+    </a>
+  </div>
+</section>
 
 <section class="container text-center my-5">
   <div class="row">
@@ -61,25 +70,49 @@
             <div class="row">
                 {% for plan in plans %}
                 <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        {% if plan.image %}
-                            <img src="{{ plan.image.url }}" class="card-img-top" alt="{{ plan.title }}">
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ plan.title }}</h5>
-                            <p class="card-text">{{ plan.short_description }}</p>
-                            <p><strong>Difficulty:</strong> {{ plan.get_difficulty_display }}</p>
-                            <p><strong>£{{ plan.price }}</strong></p>
-                            <a href="{% url 'plan_detail' plan.slug %}" class="btn btn-dark">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                {% empty %}
+  <div class="card h-100 shadow border-0" style="transition: 0.3s;">
+    
+    <div class="card-body text-center">
+
+      <h5 class="fw-bold">{{ plan.title }}</h5>
+
+      <p class="text-muted small">
+        {{ plan.short_description }}
+      </p>
+
+      <p class="mb-1">
+        <strong>Difficulty:</strong> {{ plan.difficulty }}
+      </p>
+
+      <p class="mb-2">
+        <strong>Duration:</strong> {{ plan.duration_weeks }} weeks
+      </p>
+
+      <h4 class="fw-bold mb-3">£{{ plan.price }}</h4>
+
+      {% if plan.is_premium %}
+        <span class="badge bg-warning text-dark mb-3">Premium</span>
+      {% else %}
+        <span class="badge bg-success mb-3">Free</span>
+      {% endif %}
+
+      <br>
+
+      <a href="{% url 'plan_detail' plan.slug %}" class="btn btn-outline-dark mt-3">
+        View Details
+      </a>
+
+    </div>
+  </div>
+</div>
+             {% empty %}
                 <p class="text-center">No plans added yet.</p>
                 {% endfor %}
             </div>
         </div>
     </section>
+
+    {% endblock %}
 
 </body>
 </html>

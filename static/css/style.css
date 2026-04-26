@@ -1,0 +1,30 @@
+/* Card hover effect */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+.btn-dark {
+  background-color: #1a1a1a;
+  border: none;
+}
+
+.btn-dark:hover {
+  background-color: #000;
+}
+
+/* Hero section */
+.hero-section {
+  background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+  padding: 60px 0;
+}
+
+/* Section spacing */
+section {
+  margin-bottom: 60px;
+}
