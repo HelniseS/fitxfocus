@@ -381,3 +381,178 @@ The `User` model stores:
 - Email
 - Password
 - Authentication details
+
+
+## WorkoutPlan Model
+
+The `WorkoutPlan` model stores fitness plan information.
+
+### Example Structure
+
+```python
+class WorkoutPlan(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True)
+    short_description = models.CharField(max_length=255)
+    description = models.TextField()
+    difficulty = models.CharField(max_length=20)
+    duration_weeks = models.PositiveIntegerField(default=4)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    is_premium = models.BooleanField(default=True)
+    image = models.ImageField(upload_to='plans/', blank=True, null=True)
+    video_url = models.URLField(blank=True, null=True)
+```
+
+### Purpose
+
+- Stores plan content  
+- Allows the admin to manage plans  
+- Allows users to browse and view plan details  
+
+---
+
+## Purchase Model
+
+The `Purchase` model links users to the workout plans they have bought.
+
+### Example Structure
+
+```python
+class Purchase(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    plan = models.ForeignKey(WorkoutPlan, on_delete=models.CASCADE)
+    stripe_checkout_session_id = models.CharField(max_length=255, blank=True, null=True)
+    paid = models.BooleanField(default=False)
+    purchased_at = models.DateTimeField(auto_now_add=True)
+```
+
+### Purpose
+
+- Tracks which user bought which plan  
+- Stores Stripe checkout session ID  
+- Stores payment status  
+- Controls access to premium content  
+
+---
+
+## Database Relationship Summary
+
+```text
+User 1 → many Purchases
+WorkoutPlan 1 → many Purchases
+Purchase belongs to one User and one WorkoutPlan
+```
+
+### Explanation
+
+- A user can purchase many plans  
+- A plan can be purchased by many users  
+- A purchase connects one user to one plan  
+
+---
+
+# Business Logic and Payment Flow
+
+## Payment Flow
+
+```text
+User clicks Buy Now
+        ↓
+Django creates/fetches Purchase object
+        ↓
+Django creates Stripe Checkout Session
+        ↓
+User completes payment on Stripe
+        ↓
+Stripe redirects user to success page
+        ↓
+Stripe sends webhook event
+        ↓
+Django marks Purchase.paid = True
+        ↓
+Premium content unlocks
+```
+
+---
+
+## Access Logic
+
+The plan detail page checks whether the current logged-in user has a paid purchase for that plan.
+
+### Example Logic
+
+```python
+has_purchased = Purchase.objects.filter(
+    user=request.user,
+    plan=plan,
+    paid=True
+).exists()
+```
+
+If `has_purchased` is true, the user sees unlocked premium content.  
+Otherwise, they see the **Buy Now** button.
+
+---
+
+# CRUD Functionality Summary
+
+CRUD stands for:
+
+- Create  
+- Read  
+- Update  
+- Delete  
+
+| Model        | Create                          | Read                           | Update             | Delete       |
+|-------------|----------------------------------|--------------------------------|--------------------|--------------|
+| User        | Register form                    | Login/auth system              | Admin only         | Admin only   |
+| WorkoutPlan | Admin panel                      | Public plan pages              | Admin panel        | Admin panel  |
+| Purchase    | Created automatically at checkout| Admin & access checks          | Webhook/admin      | Admin only   |
+
+---
+
+## User CRUD
+
+### Create
+Users can create an account through the registration page.
+
+### Read
+The application reads user information for login state, ownership checks, and purchase records.
+
+### Update
+User updates can be managed through Django admin.
+
+### Delete
+User deletion is available through Django admin.
+
+---
+
+## WorkoutPlan CRUD
+
+### Create
+Admin users can create workout plans from the Django admin panel.
+
+### Read
+Users can view workout plans on the home page, plans page, and plan detail page.
+
+### Update
+Admin users can update plan details.
+
+### Delete
+Admin users can delete outdated plans.
+
+---
+
+## Purchase CRUD
+
+### Create
+Purchase records are created automatically when the user starts checkout.
+
+### Read
+Purchase records are used to determine whether premium content should be unlocked.
+
+### Update
+Purchase records are updated when Stripe confirms payment.
+
+### Delete
+Purchase records can be deleted from Django admin if required.
