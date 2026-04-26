@@ -556,3 +556,197 @@ Purchase records are updated when Stripe confirms payment.
 
 ### Delete
 Purchase records can be deleted from Django admin if required.
+
+
+# Finished Product
+
+The finished product is a deployed Django fitness platform.
+
+## Live Site
+
+https://shrouded-ridge-70786-31835d78642e.herokuapp.com/
+
+---
+
+## Features Included
+
+- Home page  
+- Workout plan display  
+- Plan detail page  
+- User authentication  
+- Stripe Checkout integration  
+- Payment success page  
+- Premium content unlock logic  
+- Django admin management  
+- Heroku deployment  
+- PostgreSQL production database  
+
+---
+
+## Finished Product Screenshots
+
+### Home Page
+
+![Home Page](docs/screenshots/home-page.png)
+
+*Figure 5: Live home page*
+
+---
+
+### Plan Detail Page
+
+![Plan Detail Page](docs/screenshots/plan-detail.png)
+
+*Figure 6: Live plan detail page*
+
+---
+
+### Stripe Checkout
+
+![Stripe Checkout](docs/screenshots/stripe-checkout.png)
+
+*Figure 7: Stripe checkout page*
+
+---
+
+### Payment Success Page
+
+![Payment Success](docs/screenshots/payment-success.png)
+
+*Figure 8: Payment success page*
+
+---
+
+### Premium Content Unlocked
+
+![Premium Content Unlocked](docs/screenshots/unlocked-content.png)
+
+*Figure 9: Premium content unlocked after purchase*
+
+---
+
+# Technologies Used
+
+## Languages
+
+- Python  
+- HTML  
+- CSS  
+- JavaScript  
+
+---
+
+## Frameworks and Libraries
+
+- Django  
+- Bootstrap  
+- Stripe Python package  
+- WhiteNoise  
+- dj-database-url  
+- Gunicorn  
+
+---
+
+## Database
+
+- SQLite (local development)  
+- PostgreSQL (production on Heroku)  
+
+---
+
+## Platforms and Tools
+
+- Git  
+- GitHub  
+- Heroku  
+- Stripe Dashboard  
+- VS Code  
+- Heroku CLI  
+- Chrome DevTools  
+
+---
+
+# Testing
+
+Testing was carried out manually during development and deployment.
+
+## Manual Testing
+
+| Test              | Action                      | Expected Result                | Result |
+|------------------|---------------------------|-------------------------------|--------|
+| Home page loads  | Visit homepage             | Homepage displays             | Pass   |
+| Plans display    | Add plan in admin          | Plan appears on homepage      | Pass   |
+| View details     | Click View Details         | Plan detail page loads        | Pass   |
+| Register         | Submit registration form   | User account created          | Pass   |
+| Login            | Enter valid credentials    | User logs in                  | Pass   |
+| Logout           | Click logout               | User logs out                 | Pass   |
+| Buy button       | Click Buy Now              | Redirects to Stripe           | Pass   |
+| Stripe payment   | Use test card              | Payment succeeds              | Pass   |
+| Success page     | Complete payment           | Success page displays         | Pass   |
+| Premium unlock   | Purchase marked paid       | Content unlocks               | Pass   |
+| Admin access     | Visit /admin/              | Admin page loads              | Pass   |
+| Add plan         | Create plan in admin       | Plan saved to database        | Pass   |
+
+---
+
+## Stripe Testing
+
+Stripe test card used:
+
+```text
+4242 4242 4242 4242
+```
+
+Other test values:
+
+```text
+Expiry: Any future date
+CVC: Any 3 digits
+Postcode: Any valid value
+```
+
+---
+
+## Webhook Testing
+
+**Webhook endpoint:**
+
+```text
+https://shrouded-ridge-70786-31835d78642e.herokuapp.com/checkout/webhook/
+```
+
+**Expected Heroku log:**
+
+```text
+POST /checkout/webhook/ 200
+```
+
+---
+
+## Known Issues
+
+During development, a known issue occurred where Stripe payment completed but the plan did not unlock immediately.
+
+### Cause
+
+- Stripe webhook delivery required additional configuration and testing.
+
+### Temporary Solution
+
+- The purchase could be manually marked as paid in Django admin.
+
+### Long-Term Solution
+
+- Ensure the Stripe webhook listens for:
+
+```text
+checkout.session.completed
+```
+
+- Update the database:
+
+```python
+purchase.paid = True
+```
+
+This ensures premium content is unlocked automatically after payment.
