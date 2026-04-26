@@ -69,11 +69,8 @@ def checkout_success(request):
             session = stripe.checkout.Session.retrieve(session_id)
             purchase_id = session.get("metadata", {}).get("purchase_id")
 
-            if purchase_id and session.payment_status == "paid":
-                purchase = Purchase.objects.get(
-                    id=purchase_id,
-                    user=request.user
-                )
+            if purchase_id:
+                purchase = Purchase.objects.get(id=purchase_id, user=request.user)
                 purchase.paid = True
                 purchase.stripe_checkout_session_id = session.id
                 purchase.save()
