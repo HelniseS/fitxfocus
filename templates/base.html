@@ -21,8 +21,7 @@
 
     <div>
         <a href="/" class="text-white me-3">Home</a>
-        <a href="/plans/" class="text-white me-3">Plans</a>
-
+        <a href="{% url 'plan_list' %}" class="text-white me-3">Plans</a>
         {% if user.is_authenticated %}
             <a href="/logout/" class="text-white">Logout</a>
         {% else %}
