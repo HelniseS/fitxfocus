@@ -7,16 +7,17 @@
     <div class="row align-items-center">
 
       <!-- LEFT SIDE (IMAGE) -->
+      
       <div class="col-md-6 text-center">
-        {% if plan.image %}
-          <img src="{{ plan.image.url }}" 
-               class="img-fluid rounded shadow" 
-               style="max-height: 400px; object-fit: cover;">
-        {% else %}
-          <img src="https://via.placeholder.com/400x300" 
-               class="img-fluid rounded shadow">
-        {% endif %}
-      </div>
+    {% if plan.image %}
+        <img src="{{ plan.image.url }}" class="img-fluid rounded" alt="{{ plan.title }}">
+    {% else %}
+        <div class="p-5 bg-light rounded">
+            <p class="text-muted">Image coming soon</p>
+        </div>
+    {% endif %}
+
+
 
       <!-- RIGHT SIDE (CONTENT) -->
       <div class="col-md-6">
