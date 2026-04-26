@@ -48,11 +48,12 @@ def create_checkout_session(request, slug):
             reverse("plan_detail", args=[plan.slug])
         ),
         client_reference_id=str(request.user.id),
-        metadata={
-            "plan_id": str(plan.id),
-            "user_id": str(request.user.id),
-            "purchase_id": str(purchase.id),
-        },
+metadata={
+    "plan_id": str(plan.id),
+    "plan_slug": plan.slug,
+    "user_id": str(request.user.id),
+    "purchase_id": str(purchase.id),
+},
     )
 
     purchase.stripe_checkout_session_id = session.id
@@ -67,7 +68,8 @@ def checkout_success(request):
     if session_id:
         try:
             session = stripe.checkout.Session.retrieve(session_id)
-            purchase_id = session.get("metadata", {}).get("purchase_id")
+            purchase_id = session.metadata.get("purchase_id")
+            plan_slug = session.metadata.get("plan_slug")
 
             if purchase_id:
                 purchase = Purchase.objects.get(id=purchase_id, user=request.user)
@@ -75,11 +77,13 @@ def checkout_success(request):
                 purchase.stripe_checkout_session_id = session.id
                 purchase.save()
 
+            if plan_slug:
+                return redirect("plan_detail", slug=plan_slug)
+
         except Exception as e:
             print("CHECKOUT SUCCESS ERROR:", e)
 
     return render(request, "checkout/success.html")
-
 
 @csrf_exempt
 def stripe_webhook(request):

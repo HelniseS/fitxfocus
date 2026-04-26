@@ -17,6 +17,7 @@ def plan_detail(request, slug):
     plan = get_object_or_404(WorkoutPlan, slug=slug)
 
     has_purchased = False
+
     if request.user.is_authenticated:
         has_purchased = Purchase.objects.filter(
             user=request.user,
@@ -24,7 +25,7 @@ def plan_detail(request, slug):
             paid=True
         ).exists()
 
-    return render(request, 'plans/plan_detail.html', {
-        'plan': plan,
-        'has_purchased': has_purchased
+    return render(request, "plans/plan_detail.html", {
+        "plan": plan,
+        "has_purchased": has_purchased,
     })

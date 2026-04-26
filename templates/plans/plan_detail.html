@@ -54,12 +54,14 @@
     <h5>Premium Content</h5>
 
     {% if has_purchased %}
-        <p class="text-success">✅ You own this plan.</p>
-        <p>Full premium content unlocked.</p>
-    {% else %}
-        <p>This plan includes paid content. Buy to unlock full access.</p>
-        <a href="{% url 'create_checkout_session' plan.slug %}" class="btn btn-success">Buy Now</a>
-    {% endif %}
+    <p>You own this plan.</p>
+    <p>Full premium content unlocked.</p>
+{% else %}
+    <p>This plan includes paid content. Buy to unlock full access.</p>
+    <a href="{% url 'create_checkout_session' plan.slug %}">
+        <button>Buy Now</button>
+    </a>
+{% endif %}
 </div>
                 </div>
             </div>
