@@ -2,19 +2,23 @@
 
 {% block content %}
 
-<section class="text-center py-5" style="background: linear-gradient(135deg, #f5f7fa, #e4ecf7);">
+<section class="text-center py-5 bg-dark text-white">
   <div class="container">
-    <h1 class="display-4 fw-bold">Transform Your Body in 30 Days</h1>
-    <p class="lead text-muted mb-4">
-      Expert-led fitness and meal plans designed to help you reach your goals.
+    <h1 class="display-3 fw-bold">Build Your Best Body</h1>
+    <p class="lead mb-4">
+      Premium fitness plans designed to transform your strength, confidence, and lifestyle.
     </p>
-    <a href="{% url 'plan_list' %}" class="btn btn-dark btn-lg px-4">
-      Browse Plans
+
+    <a href="{% url 'plan_list' %}" class="btn btn-warning btn-lg px-4">
+      Start Training Now
     </a>
   </div>
 </section>
 
 <section class="container text-center my-5">
+
+<h2 class="fw-bold mb-4">Why FitXFocus?</h2>
+
   <div class="row">
     <div class="col-md-4">
       <h4>Beginner Friendly</h4>
@@ -39,7 +43,7 @@
     <div class="row">
       {% for plan in plans %}
       <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow border-0" style="transition: 0.3s;">
+        <div class="card h-100 shadow border-0 text-center">
           <div class="card-body text-center">
             <h5 class="fw-bold">{{ plan.title }}</h5>
 
