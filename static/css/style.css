@@ -32,3 +32,11 @@ section {
 footer {
   margin-top: auto;
 }
+
+.card {
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
