@@ -24,11 +24,22 @@
                 {% endif %}
 
                 <div class="card-body">
-                    <h5 class="card-title plan-title">{{ plan.title }}</h5>
-                    <p class="card-text">{{ plan.short_description }}</p>
-                    <span class="badge bg-dark me-2">{{ plan.get_difficulty_display }}</span>
-                    <span class="badge bg-secondary">{{ plan.duration_weeks }} weeks</span>
-                </div>
+    <h5 class="card-title plan-title">{{ plan.title }}</h5>
+    <p class="card-text">{{ plan.short_description }}</p>
+
+    <span class="badge bg-dark me-2">{{ plan.get_difficulty_display }}</span>
+    <span class="badge bg-secondary">{{ plan.duration_weeks }} weeks</span>
+
+    <div class="mt-3">
+        <a href="{% url 'plans:plan_detail' plan.slug %}" class="btn btn-outline-dark btn-sm">
+            View Details
+        </a>
+
+        <a href="{% url 'checkout:create_checkout_session' plan.slug %}" class="btn btn-dark btn-sm">
+            Buy Now
+        </a>
+    </div>
+</div>
 
             </div>
         </div>
