@@ -44,7 +44,8 @@
       {% for plan in plans %}
       <div class="col-md-4 mb-4">
         <div class="card h-100 shadow border-0 text-center">
-          <div class="card-body text-center">
+
+            <div class="card-body text-center">
             <h5 class="fw-bold">{{ plan.title }}</h5>
 
             <p class="text-muted small">
@@ -52,7 +53,7 @@
             </p>
 
             <p class="mb-1">
-              <strong>Difficulty:</strong> {{ plan.difficulty }}
+              <strong>Difficulty:</strong> {{ plan.get_difficulty_display }}
             </p>
 
             <p class="mb-2">
