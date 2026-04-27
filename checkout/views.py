@@ -15,6 +15,15 @@ from .models import Purchase
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+@login_required
+def checkout_success(request):
+    return render(request, "checkout/success.html")
+
+
+@login_required
+def checkout_cancel(request):
+    return render(request, "checkout/cancel.html")
+
 
 @login_required
 def create_checkout_session(request, slug):
