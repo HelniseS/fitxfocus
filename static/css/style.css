@@ -40,3 +40,8 @@ footer {
 .card:hover {
   transform: translateY(-8px);
 }
+
+.card:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+}

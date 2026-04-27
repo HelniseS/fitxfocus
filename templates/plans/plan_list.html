@@ -13,14 +13,17 @@
                 {% for plan in plans %}
                 <div class="col-md-4 mb-4 plan-card">
                     <div class="card h-100">
-                        {% if plan.image %}
-                            <img src="{{ plan.image.url }}" class="card-img-top" alt="{{ plan.title }}">
-                        {% endif %}
+                        <img src="{{ plan.image.url }}" class="card-img-top" alt="{{ plan.title }}">
+{% else %}
+    <div class="bg-light text-center p-5">
+        <small class="text-muted">Image coming soon</small>
+    </div>
+{% endif %}
                         <div class="card-body">
                             <h5 class="card-title plan-title">{{ plan.title }}</h5>
                             <p class="card-text">{{ plan.short_description }}</p>
-                            <p><strong>Difficulty:</strong> {{ plan.get_difficulty_display }}</p>
-                            <p><strong>Duration:</strong> {{ plan.duration_weeks }} weeks</p>
+                            <span class="badge bg-dark me-2">{{ plan.get_difficulty_display }}</span>
+                            <span class="badge bg-secondary">{{ plan.duration_weeks }} weeks</span>
                             <p><strong>£{{ plan.price }}</strong></p>
                             <a href="{% url 'plan_detail' plan.slug %}" class="btn btn-dark">View Details</a>
                         </div>
@@ -35,7 +38,7 @@
 
     <script>
         const searchInput = document.getElementById('planSearch');
-        const cards = document.querySelectorAll('.plan-card');
+        const cards = document.querySelectorAll('#plansContainer .plan-card');
 
         searchInput.addEventListener('keyup', function () {
             const value = this.value.toLowerCase();
