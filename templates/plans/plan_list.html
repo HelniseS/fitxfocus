@@ -14,11 +14,11 @@
                 <div class="col-md-4 mb-4 plan-card">
                     <div class="card h-100">
                         <img src="{{ plan.image.url }}" class="card-img-top" alt="{{ plan.title }}">
-{% else %}
+{% empty %}
     <div class="bg-light text-center p-5">
         <small class="text-muted">Image coming soon</small>
     </div>
-{% endif %}
+{% endfor %}
                         <div class="card-body">
                             <h5 class="card-title plan-title">{{ plan.title }}</h5>
                             <p class="card-text">{{ plan.short_description }}</p>
