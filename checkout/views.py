@@ -111,7 +111,7 @@ def stripe_webhook(request):
                 purchase.paid = True
                 purchase.stripe_checkout_session_id = session.get("id")
                 purchase.save()
-            except Purchase.DoesNotExist:
-    print("Purchase not found")
+    except Purchase.DoesNotExist:
+        print("Purchase not found")
 
     return HttpResponse(status=200)
