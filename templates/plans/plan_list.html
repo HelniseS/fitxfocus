@@ -10,29 +10,34 @@
             <input type="text" id="planSearch" class="form-control mb-4" placeholder="Search plans...">
 
             <div class="row" id="plansContainer">
-                {% for plan in plans %}
-                <div class="col-md-4 mb-4 plan-card">
-                    <div class="card h-100">
-                        <img src="{{ plan.image.url }}" class="card-img-top" alt="{{ plan.title }}">
-{% empty %}
-    <div class="bg-light text-center p-5">
-        <small class="text-muted">Image coming soon</small>
-    </div>
-{% endfor %}
-                        <div class="card-body">
-                            <h5 class="card-title plan-title">{{ plan.title }}</h5>
-                            <p class="card-text">{{ plan.short_description }}</p>
-                            <span class="badge bg-dark me-2">{{ plan.get_difficulty_display }}</span>
-                            <span class="badge bg-secondary">{{ plan.duration_weeks }} weeks</span>
-                            <p><strong>£{{ plan.price }}</strong></p>
-                            <a href="{% url 'plan_detail' plan.slug %}" class="btn btn-dark">View Details</a>
-                        </div>
+
+    {% for plan in plans %}
+        <div class="col-md-4 mb-4 plan-card">
+            <div class="card h-100">
+
+                {% if plan.image %}
+                    <img src="{{ plan.image.url }}" class="card-img-top" alt="{{ plan.title }}">
+                {% else %}
+                    <div class="bg-light text-center p-5">
+                        <small class="text-muted">Image coming soon</small>
                     </div>
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title plan-title">{{ plan.title }}</h5>
+                    <p class="card-text">{{ plan.short_description }}</p>
+                    <span class="badge bg-dark me-2">{{ plan.get_difficulty_display }}</span>
+                    <span class="badge bg-secondary">{{ plan.duration_weeks }} weeks</span>
                 </div>
-                {% empty %}
-                <p class="text-center">No plans available yet.</p>
-                {% endfor %}
+
             </div>
+        </div>
+
+    {% empty %}
+        <p>No plans available.</p>
+    {% endfor %}
+
+</div>
         </div>
     </section>
 
