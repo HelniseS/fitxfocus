@@ -40,7 +40,7 @@
           <h5 class="fw-bold">Premium Content</h5>
 
           {% if has_purchased %}
-            <p class="text-success">You own this plan ✔</p>
+            <p class="text-success">You own this plan</p>
           {% else %}
             <p>This plan includes paid content.</p>
             <a href="{% url 'create_checkout_session' plan.slug %}" 
