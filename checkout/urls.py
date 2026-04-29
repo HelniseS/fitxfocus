@@ -7,4 +7,5 @@ urlpatterns = [
     path('success/', TemplateView.as_view(template_name='checkout/success.html'), name='checkout_success'),
     path('cancel/', TemplateView.as_view(template_name='checkout/cancel.html'), name='checkout_cancel'),
     path('webhook/', views.stripe_webhook, name='stripe_webhook'),
+    path('cancel/', TemplateView.as_view(template_name='checkout/cancel.html'), name='checkout_cancel'),
 ]

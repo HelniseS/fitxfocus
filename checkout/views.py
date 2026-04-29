@@ -54,8 +54,8 @@ def create_checkout_session(request, slug):
             reverse("checkout_success")
         ) + "?session_id={CHECKOUT_SESSION_ID}",
         cancel_url=request.build_absolute_uri(
-            reverse("plan_detail", args=[plan.slug])
-        ),
+    reverse("checkout_cancel")
+    ),
         
         client_reference_id=str(request.user.id),
         metadata={
