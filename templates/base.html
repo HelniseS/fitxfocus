@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 <!-- Navbar -->
 <nav class="navbar navbar-dark bg-dark px-4 shadow">
@@ -38,10 +38,10 @@
 </nav>
 
 <!-- Page content -->
-<div class="container mt-4">
+<main class="container mt-4 flex-grow-1">
     {% block content %}
     {% endblock %}
-</div>
+</main>
 
 <footer class="bg-dark text-white text-center py-4 mt-5">
     <p class="mb-1">&copy; 2026 FitXFocus. All rights reserved.</p>
