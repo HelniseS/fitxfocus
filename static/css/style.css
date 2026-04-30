@@ -45,3 +45,11 @@ footer {
     transform: scale(1.03);
     transition: 0.3s;
 }
+
+.navbar a {
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: none;
+}
