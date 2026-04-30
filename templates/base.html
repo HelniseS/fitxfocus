@@ -17,11 +17,11 @@
 
 <!-- Navbar -->
 <nav class="navbar navbar-dark bg-dark px-4 shadow">
-    <a class="navbar-brand" href="{% url 'home' %}">FitXFocus</a>
+    <a class="navbar-brand text-decoration-none" href="{% url 'home' %}">FitXFocus</a>
 
     <div>
-        <a href="{% url 'home' %}" class="text-white me-3">Home</a>
-        <a href="{% url 'plan_list' %}" class="text-white me-3">Plans</a>
+        <a href="{% url 'home' %}" class="text-white me-3 text-decoration-none">Home</a>
+        <a href="{% url 'plan_list' %}" class="text-white me-3 text-decoration-none">Plans</a>
 
         {% if user.is_authenticated %}
             <form action="{% url 'logout' %}" method="post" style="display:inline;">
@@ -31,12 +31,11 @@
                 </button>
             </form>
         {% else %}
-            <a href="{% url 'login' %}" class="text-white me-2">Login</a>
-            <a href="{% url 'register' %}" class="text-white">Join</a>
+            <a href="{% url 'login' %}" class="text-white me-2 text-decoration-none">Login</a>
+            <a href="{% url 'register' %}" class="text-white text-decoration-none">Join</a>
         {% endif %}
     </div>
 </nav>
-
 
 <!-- Page content -->
 <div class="container mt-4">
