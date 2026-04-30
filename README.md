@@ -115,71 +115,66 @@ Users should be able to:
 ---
 
 # Design and Planning
-
 ## Wireframes
 
-Wireframes were used to plan the layout and flow before development.
-
-### Home Page Wireframe
-
-The home page was planned to include:
-
-- Navigation bar
-- Hero section
-- Call-to-action button
-- Popular plans section
-
-![Home Page Wireframe](docs/wireframes/home-wireframe.png)
-
-
+Wireframes were initially created by hand to plan the layout and structure of the application before development. These were later recreated digitally using Figma.
 
 ---
 
-### Plans Page Wireframe
+### Initial Hand-Drawn Wireframes
 
-The plans page was planned to include:
+#### Home Page
 
-- List of available workout plans
-- Plan cards
-- Plan price
-- View Details button
-
-![Plans Page Wireframe](docs/wireframes/plans-wireframe.png)
-
-
+![Home Hand Drawn](docs/wireframe/home-handdrawn.jpeg)
 
 ---
 
-### Plan Detail Page Wireframe
+#### Plans & Payment Pages
 
-The plan detail page was planned to include:
-
-- Plan title
-- Plan description
-- Difficulty
-- Duration
-- Price
-- Buy Now button
-- Premium content unlock message
-
-![Plan Detail Wireframe](docs/wireframes/plan-detail-wireframe.png)
-
+![Plans Hand Drawn](docs/wireframe/Plans-details-payment-handdrawn.jpeg)
 
 ---
 
-### Checkout Flow Wireframe
+### Digital Wireframes (balsamiq)
 
-The checkout flow was planned to include:
+#### Home Page
 
-- Buy Now button
-- Stripe hosted checkout page
-- Payment success page
-- Return to plan page
+**Desktop**
+![Home Desktop](docs/wireframe/Desktop-home-page.png)
 
-![Checkout Wireframe](docs/wireframes/checkout-wireframe.png)
-
+**Mobile**
+![Home Mobile](docs/wireframe/Mobile-home-page.png)
 
 ---
+
+#### Plans Page
+
+**Desktop**
+![Plans Desktop](docs/wireframe/Desktop-plan-page.png)
+
+**Mobile**
+![Plans Mobile](docs/wireframe/Mobile-plan-details.png)
+
+---
+
+#### Plan Detail Page
+
+**Desktop**
+![Plan Detail Desktop](docs/wireframe/Desktop-plan-details.png)
+
+**Mobile**
+![Plan Detail Mobile](docs/wireframe/Mobile-plan-details.png)
+
+---
+
+#### Payment Page
+
+**Desktop**
+![Payment Desktop](docs/wireframe/Desktop-payment-page.png)
+
+**Mobile**
+![Payment Mobile](docs/wireframe/Mobile-payment-page.png)
+
 
 ## Design Choices
 
