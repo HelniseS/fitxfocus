@@ -616,23 +616,23 @@ https://shrouded-ridge-70786-31835d78642e.herokuapp.com/
 
 ### Stripe Checkout
 
-![Stripe Checkout](docs/images/Stripe-checkout page.png)
+![Stripe Checkout](docs/images/Stripe-checkout-page.png)
 
 ---
 
 ### Payment Success Page
-![Payment Success Page](docs/images/Payment-success page.png)
+![Payment Success Page](docs/images/Payment-success-page.png)
 
 ---
 
 ### Payment Cancel Page
-![Payment Cancel Page](docs/images/Payment-cancel page.png)
+![Payment Cancel Page](docs/images/Payment-cancel-page.png)
 
 ---
 
 ### Premium Content Unlocked
 
-![Premium Content Unlocked](docs/images/Premium-content page.png)
+![Premium Content Unlocked](docs/images/Premium-content-page.png)
 
 ---
 
