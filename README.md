@@ -587,41 +587,52 @@ https://shrouded-ridge-70786-31835d78642e.herokuapp.com/
 
 ### Home Page
 
-![Home Page](docs/screenshots/home-page.png)
+![Home Page](docs/images/Home-page.png)
+![Home Page](docs/images/Home-page1.png)
 
-*Figure 5: Live home page*
+---
+
+### Plans Page
+
+![Plans Page](docs/images/Plans-page.png)
 
 ---
 
 ### Plan Detail Page
 
-![Plan Detail Page](docs/screenshots/plan-detail.png)
+![Plan Detail Page](docs/images/Plan-detail-page.png)
 
-*Figure 6: Live plan detail page*
+---
+
+### Login Page
+![Login Page](docs/images/Login-page.png)
+
+---
+
+### Register Page
+![Register Page](docs/images/Register-page.png)
 
 ---
 
 ### Stripe Checkout
 
-![Stripe Checkout](docs/screenshots/stripe-checkout.png)
-
-*Figure 7: Stripe checkout page*
+![Stripe Checkout](docs/images/Stripe-checkout page.png)
 
 ---
 
 ### Payment Success Page
+![Payment Success Page](docs/images/Payment-success page.png)
 
-![Payment Success](docs/screenshots/payment-success.png)
+---
 
-*Figure 8: Payment success page*
+### Payment Cancel Page
+![Payment Cancel Page](docs/images/Payment-cancel page.png)
 
 ---
 
 ### Premium Content Unlocked
 
-![Premium Content Unlocked](docs/screenshots/unlocked-content.png)
-
-*Figure 9: Premium content unlocked after purchase*
+![Premium Content Unlocked](docs/images/Premium-content page.png)
 
 ---
 
