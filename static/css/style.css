@@ -1,11 +1,11 @@
 /* Card hover effect */
 .card {
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Buttons */
@@ -29,27 +29,16 @@ section {
   margin-bottom: 60px;
 }
 
+/* Footer fix */
 footer {
   margin-top: auto;
 }
 
-.card {
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-.card:hover {
-    transform: scale(1.03);
-    transition: 0.3s;
-}
-
+/* Navbar links */
 .navbar a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .navbar a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
