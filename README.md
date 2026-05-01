@@ -676,7 +676,134 @@ https://shrouded-ridge-70786-31835d78642e.herokuapp.com/
 
 Testing was carried out manually during development and deployment.
 
-## Manual Testing
+### Python Validation (Flake8)
+
+Python code was tested using Flake8 to ensure correct syntax and PEP8 compliance.
+
+Issues found included:
+- Unused imports
+- Line length warnings
+- Missing new lines
+- Formatting inconsistencies
+
+These were fixed during development.
+
+Final command used:
+
+python -m flake8
+
+Result: No errors returned.
+
+![Flake8 Validation](docs/testing/Python-test.png)
+![Flake8 Validation](docs/testing/Python-test1.png)
+
+
+---
+
+### HTML Validation
+
+HTML was validated using the W3C HTML Validator.
+
+Issues found:
+- Skipped heading levels
+
+Fix:
+- Corrected heading hierarchy (h1 → h2 → h3)
+
+![HTML Validation](docs/testing/HTML-test.png)
+
+---
+
+### CSS Validation
+
+CSS was validated using the W3C CSS Validator.
+
+Warnings were related to Bootstrap (external library) and do not affect functionality.
+
+![CSS Validation](docs/testing/css-test.png)
+
+---
+
+### JavaScript Validation
+
+JavaScript was tested using JSLint.
+
+Warnings were related to modern syntax and style preferences.  
+The functionality (plan search/filtering) works correctly.
+
+
+![JSLint Validation](docs/testing/Javascript-test.png)
+
+![JSLint Validation](docs/testing/Javascript-test1.png)
+---
+
+### Lighthouse Testing
+
+Lighthouse testing was carried out using Chrome DevTools on all key pages of the application.
+
+---
+
+#### Home Page
+
+The home page achieved high performance scores across all categories.
+
+- Performance: High (green)
+- Accessibility: 100
+- Best Practices: High
+- SEO: High
+
+![Home Page Lighthouse](docs/testing/Home-test.png)
+
+---
+
+#### Login Page
+
+The login page was tested and returned excellent results.
+
+- Performance: High (green)
+- Accessibility: 100
+- Best Practices: High
+- SEO: High
+
+![Login Lighthouse](docs/testing/Login-test.png)
+
+---
+
+#### Register Page
+
+The register page also achieved high Lighthouse scores.
+
+- Performance: High (green)
+- Accessibility: 100
+- Best Practices: High
+- SEO: High
+
+![Register Lighthouse](docs/testing/register-test.png)
+
+---
+
+#### Payment Page (Stripe)
+
+The payment page was tested via Stripe Checkout.
+
+- Performance: 48
+- Accessibility: 100
+- Best Practices: 77
+- SEO: 50
+
+Lower scores are expected because this page is handled by Stripe (a third-party service) and includes external scripts and security layers that cannot be optimised within this project.
+
+![Payment Lighthouse](docs/testing/Payment-test.png)
+
+---
+
+### Summary
+
+All custom-built pages of the FitXFocus application achieved high Lighthouse scores, demonstrating strong performance, accessibility, and adherence to best practices.
+
+Lower scores are only present on the Stripe payment page, which is external and outside of the project's control.
+
+### Manual Testing
 
 | Test              | Action                      | Expected Result                | Result |
 |------------------|---------------------------|-------------------------------|--------|
@@ -692,8 +819,25 @@ Testing was carried out manually during development and deployment.
 | Premium unlock   | Purchase marked paid       | Content unlocks               | Pass   |
 | Admin access     | Visit /admin/              | Admin page loads              | Pass   |
 | Add plan         | Create plan in admin       | Plan saved to database        | Pass   |
+| Responsive       |   Mobile/Desktop           | Layout adjusts                | Pass   |
+| Payment cancel   | Cancel payment             | Cancel page                   | Pass   |
+| Premium access   | Purchase plan              | Content unlocked              | Pass   |
 
 ---
+
+### Bugs & Fixes
+
+| Bug | Fix |
+|-----|-----|
+| Heading level errors | Corrected structure |
+| Flake8 warnings | Cleaned formatting |
+| JSLint warnings | Adjusted syntax |
+| Payment redirect issues | Fixed URL routing |
+
+
+
+## Manual Testing
+
 
 ## Stripe Testing
 
