@@ -182,15 +182,22 @@ Wireframes were initially created by hand to plan the layout and structure of th
 
 The typography was kept simple and readable. The aim was to make the platform easy to use for visitors who want to quickly browse fitness plans and understand what each plan includes.
 
+
 ### Colour Scheme
 
-The colour scheme is clean and simple:
+The application uses a clean and modern colour palette designed for clarity and usability.
 
-- Dark navigation bar for contrast
-- Light background for readability
-- Green buttons for purchase actions
-- Blue buttons for primary calls to action
-- Neutral text colours for descriptions
+| Colour        | Hex Code | Usage |
+|--------------|---------|------|
+| Dark Grey / Black | #212529 | Navigation bar, footer |
+| White        | #FFFFFF | Background |
+| Yellow       | #FFC107 | Call-to-action buttons (Start Training) |
+| Green        | #198754 | Success states, free badges |
+| Blue         | #0D6EFD | Primary buttons |
+| Light Grey   | #F8F9FA | Background sections |
+
+The colour scheme ensures strong contrast, improving readability and accessibility.
+
 
 ### Media
 
@@ -631,45 +638,99 @@ https://shrouded-ridge-70786-31835d78642e.herokuapp.com/
 
 ---
 
-# Technologies Used
-
-## Languages
-
-- Python  
-- HTML  
-- CSS  
-- JavaScript  
-
----
-
 ## Frameworks and Libraries
 
-- Django  
-- Bootstrap  
-- Stripe Python package  
-- WhiteNoise  
-- dj-database-url  
-- Gunicorn  
+
+### Django  
+https://www.djangoproject.com/  
+Django is the main backend framework used to build the application. It handles routing, database interaction, authentication, and overall project structure.
+
+### Bootstrap  
+https://getbootstrap.com/  
+Bootstrap was used for front-end styling and layout. It provides responsive design, pre-built components, and a consistent UI across devices.
+
+### Stripe Python Package  
+https://stripe.com/docs/api  
+The Stripe Python library was used to integrate secure payment processing. It allows the application to create checkout sessions and handle payment events.
+
+### WhiteNoise  
+https://whitenoise.evans.io/  
+WhiteNoise is used to serve static files (CSS, JavaScript, images) in production on Heroku without needing an external server.
+
+### dj-database-url  
+https://pypi.org/project/dj-database-url/  
+This library simplifies database configuration by allowing the use of environment variables for connecting to PostgreSQL in production.
+
+### Gunicorn  
+https://gunicorn.org/  
+Gunicorn is a production-ready web server used to run the Django application on Heroku.
 
 ---
 
 ## Database
 
-- SQLite (local development)  
-- PostgreSQL (production on Heroku)  
+### SQLite  
+https://www.sqlite.org/  
+SQLite was used during local development as a lightweight database that requires no setup.
+
+### PostgreSQL  
+https://www.postgresql.org/  
+PostgreSQL is used in production on Heroku. It is a powerful and scalable relational database system.
 
 ---
 
 ## Platforms and Tools
 
-- Git  
-- GitHub  
-- Heroku  
-- Stripe Dashboard  
-- VS Code  
-- Heroku CLI  
-- Chrome DevTools  
+### Git  
+https://git-scm.com/  
+Git was used for version control to track changes and manage the development process.
 
+### GitHub  
+https://github.com/  
+GitHub was used to store the project repository, manage commits, and deploy the application via Heroku integration.
+
+### Heroku  
+https://www.heroku.com/  
+Heroku was used to deploy and host the live application, including managing environment variables and the production database.
+
+### Stripe Dashboard  
+https://dashboard.stripe.com/  
+The Stripe Dashboard was used to manage payments, view transactions, and configure webhook endpoints.
+
+### VS Code  
+https://code.visualstudio.com/  
+Visual Studio Code was used as the main code editor for writing and managing the project files.
+
+### Heroku CLI  
+https://devcenter.heroku.com/articles/heroku-cli  
+The Heroku Command Line Interface was used to deploy the application, run migrations, and manage the Heroku app from the terminal.
+
+### Chrome DevTools  
+https://developer.chrome.com/docs/devtools/  
+Chrome DevTools was used for debugging, performance testing (Lighthouse), and inspecting HTML, CSS, and JavaScript.
+
+### Balsamiq  
+https://balsamiq.com/  
+Balsamiq was used to create digital wireframes for planning the layout and structure of the application before development.
+
+
+## Languages
+
+### Python  
+https://www.python.org/  
+Python is the primary programming language used to build the backend of the application using Django. It handles business logic, database interaction, and server-side functionality.
+
+### HTML  
+https://developer.mozilla.org/en-US/docs/Web/HTML  
+HTML (HyperText Markup Language) is used to structure the content of the web pages, including layout, headings, forms, and navigation.
+
+### CSS  
+https://developer.mozilla.org/en-US/docs/Web/CSS  
+CSS (Cascading Style Sheets) is used to style the application, including layout, colours, spacing, and responsiveness.
+
+### JavaScript  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript  
+JavaScript is used to add interactivity to the application, such as the search/filter functionality on the plans page.
 ---
 
 # Testing
@@ -739,8 +800,7 @@ The functionality (plan search/filtering) works correctly.
 
 ### Lighthouse Testing
 
-Lighthouse testing was carried out using Chrome DevTools on all key pages of the application.
-
+Lighthouse testing was conducted using Chrome DevTools to evaluate performance, accessibility, best practices, and SEO across all key pages of the application.
 ---
 
 #### Home Page
@@ -865,9 +925,7 @@ The application is accessible and follows good web accessibility practices.
 | JSLint warnings | Adjusted syntax |
 | Payment redirect issues | Fixed URL routing |
 
-
-
-## Manual Testing
+---
 
 
 ## Stripe Testing
@@ -1009,3 +1067,10 @@ Special thanks to:
 
 - Dr Raghav Kovvuri for guidance, support, and feedback throughout the project  
 - University Centre Peterborough for providing the learning environment and resources  
+
+
+# Conclusion
+
+FitXFocus demonstrates a complete full-stack web application built using Django. The project successfully integrates authentication, database management, payment processing, and deployment.
+
+The application meets its core objectives and provides a scalable foundation for future improvements such as user dashboards, subscriptions, and enhanced user interaction features.
