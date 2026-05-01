@@ -9,12 +9,12 @@
         <form method="post" class="border p-4 rounded bg-light" aria-label="User registration form">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-dark w-100"  ria-label="Submit registration form">Register</button>
+            <button type="submit" class="btn btn-dark w-100"  aria-label="Submit registration form">Register</button>
         </form>
 
         <p class="mt-3 text-center">
             Already have an account?
-            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'login' %}"   aria-label="Log in to your account">Login</a>
         </p>
     </div>
 
