@@ -803,6 +803,37 @@ All custom-built pages of the FitXFocus application achieved high Lighthouse sco
 
 Lower scores are only present on the Stripe payment page, which is external and outside of the project's control.
 
+---
+---
+
+### Accessibility Testing (WAVE)
+
+Accessibility testing was carried out using the WAVE Web Accessibility Evaluation Tool.
+
+Results:
+
+- Errors: 0  
+- Contrast Errors: 0  
+- Alerts: 1  
+- Accessibility Score: 10/10  
+
+The tool confirmed that no major accessibility issues were detected. One minor alert was identified (redundant link), which does not impact usability.
+
+Manual testing was also considered to ensure full accessibility compliance.
+
+![WAVE Accessibility Test](docs/testing/Wave-test.png)
+
+---
+
+### Accessibility Notes
+
+- Semantic HTML structure was used throughout the project  
+- Headings follow a logical hierarchy  
+- Buttons and links are clearly identifiable  
+- Forms are accessible and usable  
+
+The application is accessible and follows good web accessibility practices.
+
 ### Manual Testing
 
 | Test              | Action                      | Expected Result                | Result |
