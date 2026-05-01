@@ -29,3 +29,4 @@ def plan_detail(request, slug):
         "plan": plan,
         "has_purchased": has_purchased,
     })
+    

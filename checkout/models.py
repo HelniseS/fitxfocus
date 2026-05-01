@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.db import models
+
 from plans.models import WorkoutPlan
+
 
 # Create your models here.
 class Purchase(models.Model):

@@ -1,9 +1,9 @@
-import json
+
 import stripe
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
@@ -14,6 +14,7 @@ from .models import Purchase
 
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET_KEY
+
 
 @login_required
 def checkout_success(request):
@@ -54,8 +55,8 @@ def create_checkout_session(request, slug):
             reverse("checkout_success")
         ) + "?session_id={CHECKOUT_SESSION_ID}",
         cancel_url=request.build_absolute_uri(
-    reverse("checkout_cancel")
-    ),
+            reverse("checkout_cancel")
+        ),
         
         client_reference_id=str(request.user.id),
         metadata={
@@ -70,6 +71,7 @@ def create_checkout_session(request, slug):
     purchase.save()
 
     return redirect(session.url, code=303)
+
 
 @csrf_exempt
 def stripe_webhook(request):
