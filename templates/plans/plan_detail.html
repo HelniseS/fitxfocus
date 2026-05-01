@@ -30,14 +30,14 @@
           <span class="badge bg-secondary">{{ plan.duration_weeks }} weeks</span>
         </div>
 
-        <h3 class="fw-bold mb-3">£{{ plan.price }}</h3>
+        <p class="fw-bold mb-3">£{{ plan.price }}</p>
 
         <p>{{ plan.description }}</p>
 
         <!-- PREMIUM BOX -->
     
        <div class="mt-4 p-4 bg-light rounded shadow-sm">
-          <h5 class="fw-bold">Premium Content</h5>
+          <h2 class="fw-bold">Premium Content</h2>
 
           {% if has_purchased %}
             <p class="text-success">You own this plan</p>

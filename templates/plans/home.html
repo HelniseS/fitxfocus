@@ -21,15 +21,15 @@
 
   <div class="row">
     <div class="col-md-4">
-      <h4>Beginner Friendly</h4>
+      <h3>Beginner Friendly</h3>
       <p>Simple plans designed to help you start confidently.</p>
     </div>
     <div class="col-md-4">
-      <h4>Premium Content</h4>
+      <h3>Premium Content</h3>
       <p>Unlock detailed workout guidance with secure checkout.</p>
     </div>
     <div class="col-md-4">
-      <h4>Train Anywhere</h4>
+      <h3>Train Anywhere</h3>
       <p>Plans suitable for gym, home, and flexible routines.</p>
     </div>
   </div>
@@ -46,7 +46,7 @@
         <div class="card h-100 shadow border-0 text-center">
 
             <div class="card-body text-center">
-            <h5 class="fw-bold">{{ plan.title }}</h5>
+            <h3 class="fw-bold">{{ plan.title }}</h3>
 
             <p class="text-muted small">
               {{ plan.short_description }}
@@ -60,7 +60,7 @@
               <strong>Duration:</strong> {{ plan.duration_weeks }} weeks
             </p>
 
-            <h4 class="fw-bold mb-3">£{{ plan.price }}</h4>
+            <p class="fw-bold mb-3">£{{ plan.price }}</p>
 
             {% if plan.is_premium %}
               <span class="badge bg-warning text-dark mb-3">Premium</span>

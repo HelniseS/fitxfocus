@@ -756,3 +756,81 @@ purchase.paid = True
 ```
 
 This ensures premium content is unlocked automatically after payment.
+
+# Deployment
+
+The project was deployed to Heroku.
+
+## Deployment Steps
+
+1. Created a Heroku app.
+2. Connected the GitHub repository to Heroku.
+3. Added Heroku Config Vars:
+   - DATABASE_URL
+   - SECRET_KEY
+   - DEBUG=False
+   - STRIPE_PUBLIC_KEY
+   - STRIPE_SECRET_KEY
+   - STRIPE_WEBHOOK_SECRET
+4. Added the Python buildpack.
+5. Pushed the project to Heroku.
+6. Ran database migrations.
+7. Tested the live site.
+
+Live site: https://shrouded-ridge-70786-31835d78642e.herokuapp.com/
+
+---
+
+# Security and Environment Variables
+
+Sensitive values are not stored directly in the codebase.
+
+The following values are stored in Heroku Config Vars:
+
+- SECRET_KEY
+- DATABASE_URL
+- DEBUG
+- STRIPE_PUBLIC_KEY
+- STRIPE_SECRET_KEY
+- STRIPE_WEBHOOK_SECRET
+
+Production security steps:
+
+- DEBUG is set to False on Heroku.
+- Stripe keys are stored as environment variables.
+- CSRF protection is enabled.
+- Stripe webhook signature verification is used.
+
+---
+
+# Performance and Accessibility
+
+## Performance
+
+- Static files are served using WhiteNoise.
+- Images are kept in project folders and should be compressed before upload.
+- Bootstrap is used to keep the layout responsive.
+
+## Accessibility
+
+- Navigation links are clear and readable.
+- Buttons describe their action clearly.
+- Text contrast was checked visually.
+- Pages were tested on desktop and smaller screen sizes.
+
+---
+
+# Credits
+
+- Django documentation
+- Bootstrap documentation
+- Stripe documentation
+- Heroku documentation
+- Code Institute learning materials
+
+## Acknowledgements
+
+Special thanks to:
+
+- Dr Raghav Kovvuri for guidance, support, and feedback throughout the project  
+- University Centre Peterborough for providing the learning environment and resources  
