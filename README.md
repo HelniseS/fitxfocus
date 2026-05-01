@@ -153,7 +153,7 @@ Wireframes were initially created by hand to plan the layout and structure of th
 ![Plans Desktop](docs/wireframe/Desktop-plan-page.png)
 
 **Mobile**
-![Plans Mobile](docs/wireframe/Mobile-plan-details.png)
+![Plans Mobile](docs/wireframe/Mobile-plan-page.png)
 
 ---
 
