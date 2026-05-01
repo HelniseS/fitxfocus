@@ -44,7 +44,7 @@
           {% else %}
             <p>This plan includes paid content.</p>
             <a href="{% url 'create_checkout_session' plan.slug %}" 
-               class="btn btn-dark">
+               class="btn btn-dark" aria-label="Buy {{ plan.title }} workout plan">
                Buy Now
             </a>
           {% endif %}

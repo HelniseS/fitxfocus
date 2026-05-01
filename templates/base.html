@@ -16,34 +16,36 @@
 <body class="d-flex flex-column min-vh-100">
 
 <!-- Navbar -->
-<nav class="navbar navbar-dark bg-dark px-4 shadow">
-    <a class="navbar-brand text-decoration-none" href="{% url 'home' %}">FitXFocus</a>
+<nav class="navbar navbar-dark bg-dark px-4 shadow" role="navigation" aria-label="Main navigation">
+    <a class="navbar-brand text-decoration-none" href="{% url 'home' %}">" aria-label="Go to homepage"> FitXFocus</a>
 
     <div>
-        <a href="{% url 'home' %}" class="text-white me-3 text-decoration-none">Home</a>
-        <a href="{% url 'plan_list' %}" class="text-white me-3 text-decoration-none">Plans</a>
+        <a href="{% url 'home' %}" class="text-white me-3 text-decoration-none" 
+        aria-label="Go to home page">Home</a>
+        <a href="{% url 'plan_list' %}" class="text-white me-3 text-decoration-none"
+        aria-label="View workout plans">Plans</a>
 
         {% if user.is_authenticated %}
             <form action="{% url 'logout' %}" method="post" style="display:inline;">
                 {% csrf_token %}
-                <button class="btn btn-link text-white p-0 text-decoration-none" type="submit">
+                <button class="btn btn-link text-white p-0 text-decoration-none" type="submit" aria-label="Log out of your account">
                     Logout
                 </button>
             </form>
         {% else %}
-            <a href="{% url 'login' %}" class="text-white me-2 text-decoration-none">Login</a>
-            <a href="{% url 'register' %}" class="text-white text-decoration-none">Join</a>
+            <a href="{% url 'login' %}" class="text-white me-2 text-decoration-none" aria-label="Log in to your account">Login</a>
+            <a href="{% url 'register' %}" class="text-white text-decoration-none"  aria-label="Create a new account">Join</a>
         {% endif %}
     </div>
 </nav>
 
 <!-- Page content -->
-<main class="container mt-4 flex-grow-1">
+<main class="container mt-4 flex-grow-1" role="main">
     {% block content %}
     {% endblock %}
 </main>
 
-<footer class="bg-dark text-white text-center py-4 mt-5">
+<footer class="bg-dark text-white text-center py-4 mt-5" role="contentinfo">
     <p class="mb-1">&copy; 2026 FitXFocus. All rights reserved.</p>
     <p class="mb-0 small">Fitness plans, premium workouts, and meal guidance.</p>
 </footer>

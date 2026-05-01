@@ -9,7 +9,7 @@
       Premium fitness plans designed to transform your strength, confidence, and lifestyle.
     </p>
 
-    <a href="{% url 'plan_list' %}" class="btn btn-warning btn-lg px-4">
+    <a href="{% url 'plan_list' %}" class="btn btn-warning btn-lg px-4" aria-label="View available workout plans">
       Start Training Now
     </a>
   </div>
@@ -70,7 +70,7 @@
 
             <br>
 
-            <a href="{% url 'plan_detail' plan.slug %}" class="btn btn-outline-dark mt-3">
+            <a href="{% url 'plan_detail' plan.slug %}" class="btn btn-outline-dark mt-3" aria-label="View details for {{ plan.title }}">
               View Details
             </a>
           </div>

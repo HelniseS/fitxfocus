@@ -6,10 +6,10 @@
     <div class="container py-5" style="max-width: 500px;">
         <h1 class="mb-4 text-center">Create Account</h1>
 
-        <form method="post" class="border p-4 rounded bg-light">
+        <form method="post" class="border p-4 rounded bg-light" aria-label="User registration form">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-dark w-100">Register</button>
+            <button type="submit" class="btn btn-dark w-100"  ria-label="Submit registration form">Register</button>
         </form>
 
         <p class="mt-3 text-center">
