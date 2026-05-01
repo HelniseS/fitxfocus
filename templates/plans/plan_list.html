@@ -50,18 +50,18 @@
     </section>
 
     <script>
-        const searchInput = document.getElementById('planSearch');
-        const cards = document.querySelectorAll('#plansContainer .plan-card');
+        const searchInput = document.getElementById("planSearch");
+        const cards = document.querySelectorAll("#plansContainer .plan-card");
 
-        searchInput.addEventListener('keyup', function () {
+        searchInput.addEventListener("keyup", function () {
             const value = this.value.toLowerCase();
 
-            cards.forEach(card => {
-                const title = card.querySelector('.plan-title').textContent.toLowerCase();
+            cards.forEach(function(card)  {
+                const title = card.querySelector(".plan-title").textContent.toLowerCase();
                 if (title.includes(value)) {
                     card.style.display = '';
                 } else {
-                    card.style.display = 'none';
+                    card.style.display = "none";
                 }
             });
         });
