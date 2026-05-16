@@ -35,6 +35,16 @@
         View Details
     </a>
 
+    <a href="{% url 'edit_plan' plan.slug %}" class="btn btn-outline-secondary btn-sm"
+       aria-label="Edit {{ plan.title }}">
+        Edit
+    </a>
+
+    <a href="{% url 'delete_plan' plan.slug %}" class="btn btn-outline-danger btn-sm"
+       aria-label="Delete {{ plan.title }}">
+        Delete
+    </a>
+
 </div>
 </div>
 
